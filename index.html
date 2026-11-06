@@ -6,139 +6,89 @@
 <title>LIGER MUSIC</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial}
-  body{background:#121212;color:#fff;padding-bottom:140px}
-  .header{padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#121212;z-index:10}
+  body{background:#121212;color:#fff;padding-bottom:150px}
+  .header{padding:18px 20px 10px;display:flex;justify-content:space-between;align-items:center}
   .logo{font-size:26px;font-weight:900;letter-spacing:-1px}
   .logo span{color:#1DB954}
   .logo small{font-size:10px;color:#b3b3b3;display:block;letter-spacing:4px;font-weight:700}
-  .avatar{width:38px;height:38px;background:#1DB954;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .avatar{width:38px;height:38px;background:#1DB954;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000}
   .greet{padding:5px 20px;font-size:22px;font-weight:800}
   .greet span{color:#b3b3b3;font-size:14px;display:block;font-weight:400;margin-top:2px}
-  .searchBox{margin:12px 20px;background:#242424;padding:4px 16px;border-radius:10px;display:flex;align-items:center;gap:10px;border:1px solid #333}
-  .searchBox:focus-within{border-color:#fff;background:#2a2a2a}
+  .searchBox{margin:12px 20px;background:#242424;padding:4px 16px;border-radius:10px;display:flex;align-items:center;gap:10px}
   .searchBox input{flex:1;background:none;border:none;outline:none;color:#fff;padding:12px 0;font-size:15px}
   .searchBox input::placeholder{color:#a7a7a7}
-  .chips{display:flex;gap:8px;padding:5px 20px;overflow-x:auto;scrollbar-width:none}
+  .chips{display:flex;gap:8px;padding:5px 20px;overflow-x:auto}
   .chips button{background:#232323;border:none;color:#fff;padding:8px 16px;border-radius:30px;font-size:13px;white-space:nowrap}
   .chips button.active{background:#fff;color:#000;font-weight:700}
-  .section{padding:18px 20px 5px;display:flex;justify-content:space-between;align-items:center}
-  .section h2{font-size:19px}
-  .section a{font-size:12px;color:#b3b3b3;text-decoration:none}
+  .section{padding:18px 20px 5px;display:flex;justify-content:space-between}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 20px}
   .gridCard{background:#181818;border-radius:10px;padding:14px}
-  .gridCard .img{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#1DB954,#148a3e);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:10px}
-  .gridCard h3{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .gridCard p{font-size:12px;color:#a7a7a7;margin-top:3px}
+  .gridCard .img{width:100%;aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:42px;margin-bottom:10px}
+  .gridCard h3{font-size:14px}
+  .gridCard p{font-size:12px;color:#a7a7a7}
   .list{padding:5px 20px}
-  .card{background:transparent;padding:10px 0;display:flex;gap:14px;align-items:center;cursor:pointer;border-bottom:1px solid #1e1e1e}
+  .card{padding:12px 0;display:flex;gap:14px;align-items:center;cursor:pointer;border-bottom:1px solid #1e1e1e}
   .card.active h3{color:#1DB954}
-  .cover{width:52px;height:52px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+  .cover{width:52px;height:52px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:24px}
   .card h3{font-size:15px}
-  .card p{font-size:12px;color:#a7a7a7;margin-top:2px}
-  .playbtn{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#fff;border:none;font-size:14px;cursor:pointer}
+  .card p{font-size:12px;color:#a7a7a7}
+  .playbtn{margin-left:auto;width:36px;height:36px;border-radius:50%;background:#fff;border:none}
   .noResult{text-align:center;color:#a7a7a7;padding:30px;display:none}
-  .player{position:fixed;bottom:68px;left:12px;right:12px;background:#282828;padding:10px 14px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.6)}
+  .player{position:fixed;bottom:68px;left:12px;right:12px;background:#282828;padding:10px 14px;border-radius:10px}
   .player-top{display:flex;align-items:center;gap:10px}
-  .miniCover{width:42px;height:42px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .miniCover{width:42px;height:42px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:20px}
   .player-top b{font-size:14px;display:block}
   .player-top span{font-size:12px;color:#b3b3b3}
-  .player-top .bigPlay{margin-left:auto;width:38px;height:38px;background:#fff;border:none;border-radius:50%;font-size:16px}
+  .bigPlay{margin-left:auto;width:38px;height:38px;background:#fff;border:none;border-radius:50%;font-size:16px}
   input[type=range]{width:100%;margin-top:8px;accent-color:#fff;height:4px}
   .bottomNav{position:fixed;bottom:0;left:0;right:0;background:#000;display:flex;justify-content:space-around;padding:10px 0 14px;border-top:1px solid #222}
   .bottomNav div{text-align:center;font-size:10px;color:#b3b3b3}
   .bottomNav div.active{color:#fff}
-  .bottomNav span{font-size:20px;display:block;margin-bottom:2px}
+  .bottomNav span{font-size:20px;display:block}
 </style>
 </head>
 <body>
-
-<div class="header">
-  <div class="logo">LIGER<span>MUSIC</span><small>BY LIGER</small></div>
-  <div class="avatar">L</div>
-</div>
-
+<div class="header"><div class="logo">LIGER<span>MUSIC</span><small>BY LIGER</small></div><div class="avatar">L</div></div>
 <div class="greet">Good evening, Liger<span>Tera apna Spotify 🔥</span></div>
-
 <div class="searchBox"><span>🔍</span><input id="searchInput" placeholder="Search songs, artists..." oninput="searchSong()"><span id="clearBtn" onclick="clearSearch()" style="display:none;cursor:pointer">✖</span></div>
-
 <div class="chips">
   <button class="active" onclick="filterChip('All',this)">All</button>
   <button onclick="filterChip('Liger',this)">Liger</button>
-  <button onclick="filterChip('Arjit',this)">Danish</button>
+  <button onclick="filterChip('Danish',this)">Danish</button>
   <button onclick="filterChip('Sad',this)">Sad</button>
   <button onclick="filterChip('Party',this)">Party</button>
 </div>
-
-<div class="section"><h2>Made For You</h2><a href="#">Show all</a></div>
+<div class="section"><h2>Made For You</h2></div>
 <div class="grid" id="grid"></div>
-
 <div class="section"><h2 id="listTitle">Trending Now</h2></div>
 <div class="list" id="list"></div>
-<div class="noResult" id="noResult">Koi gaana nahi mila 😢<br>Dusra naam try karo</div>
+<div class="noResult" id="noResult">Koi gaana nahi mila 😢</div>
 
 <div class="player">
   <div class="player-top">
     <div class="miniCover" id="nowCover" style="background:#1DB954">🎵</div>
-    <div style="flex:1;overflow:hidden"><b id="nowTitle">Gaana Select Karo</b><span id="nowArtist">LIGER MUSIC</span></div>
+    <div style="flex:1"><b id="nowTitle">Gaana Select Karo</b><span id="nowArtist">LIGER MUSIC</span></div>
     <button onclick="prevSong()" style="background:none;border:none;color:#fff;font-size:20px">⏮</button>
     <button class="bigPlay" id="playBtn" onclick="togglePlay()">▶</button>
     <button onclick="nextSong()" style="background:none;border:none;color:#fff;font-size:20px">⏭</button>
   </div>
   <input type="range" id="progress" value="0" max="100">
 </div>
-
-<div class="bottomNav">
-  <div class="active"><span>🏠</span>Home</div>
-  <div><span>🔍</span>Search</div>
-  <div><span>📚</span>Library</div>
-  <div><span>👤</span>Profile</div>
-</div>
+<div class="bottomNav"><div class="active"><span>🏠</span>Home</div><div><span>🔍</span>Search</div><div><span>📚</span>Library</div><div><span>👤</span>Profile</div></div>
 
 <script>
-// YAHAN APNE GAANE KA NAAM LIKHO - FILE GitHub me songs folder me daalni hai
 const songs = [
-  {title:"Tere Bina", artist:"Liger", emoji:"🔥", color:"#1DB954", file:"songs/tere-bina.mp3"},
-  {title:"Karachi Nights", artist:"Liger", emoji:"🌙", color:"#8d67ab", file:"songs/karachi-nights.mp3"},
-  {title:"Arjit Vibes", artist:"LIGER ", emoji:"💚", color:"#e13300", file:"songs/danish-vibes.mp3"},
-  {title:"Chill Mode", artist:"Liger", emoji:"😎", color:"#2d46b9", file:"songs/chill-mode.mp3"},
-  {title:"Sad Song", artist:"liger", emoji:"💔", color:"#503750", file:"songs/sad-song.mp3"},
-  {title:"Party Night", artist:"Liger", emoji:"🎉", color:"#e8115b", file:"songs/party-night.mp3"},
+  {title:"Tere Bina", artist:"Liger", emoji:"🔥", color:"#1DB954", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"},
+  {title:"Karachi Nights", artist:"Liger", emoji:"🌙", color:"#8d67ab", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"},
+  {title:"Danish Vibes", artist:"Danish x Liger", emoji:"💚", color:"#e13300", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"},
+  {title:"Chill Mode", artist:"Liger", emoji:"😎", color:"#2d46b9", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"},
+  {title:"Sad Song", artist:"Danish", emoji:"💔", color:"#503750", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"},
+  {title:"Party Night", artist:"Liger", emoji:"🎉", color:"#e8115b", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"},
+  {title:"Lo-Fi Love", artist:"Liger", emoji:"🎧", color:"#148a3e", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"},
+  {title:"Drive Mode", artist:"Danish", emoji:"🚗", color:"#b81d24", file:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"},
 ];
 let current = 0; let audio = new Audio();
 const list=document.getElementById('list'); const grid=document.getElementById('grid');
 const playBtn=document.getElementById('playBtn');
-
-function renderGrid(){
-  grid.innerHTML="";
-  songs.slice(0,4).forEach((s,i)=>{
-    let d=document.createElement('div'); d.className='gridCard';
-    d.innerHTML=`<div class="img" style="background:${s.color}">${s.emoji}</div><h3>${s.title}</h3><p>${s.artist}</p>`;
-    d.onclick=()=>playSong(i); grid.appendChild(d);
-  });
-}
-function renderList(filter=""){
-  list.innerHTML="";
-  let filtered=songs.filter(s=>(s.title+s.artist).toLowerCase().includes(filter.toLowerCase()));
-  document.getElementById('noResult').style.display=filtered.length?'none':'block';
-  document.getElementById('listTitle').innerText=filter?`Results for "${filter}"`:'Trending Now';
-  filtered.forEach(s=>{
-    let idx=songs.indexOf(s);
-    let d=document.createElement('div'); d.className='card'+(idx===current&&audio.src?' active':'');
-    d.innerHTML=`<div class="cover" style="background:${s.color}">${s.emoji}</div><div><h3>${s.title}</h3><p>${s.artist}</p></div><button class="playbtn">▶</button>`;
-    d.onclick=()=>playSong(idx); list.appendChild(d);
-  });
-}
-function searchSong(){ let v=document.getElementById('searchInput').value; document.getElementById('clearBtn').style.display=v?'block':'none'; renderList(v); }
-function clearSearch(){ document.getElementById('searchInput').value=""; document.getElementById('clearBtn').style.display='none'; renderList(""); }
-function filterChip(txt,el){ document.querySelectorAll('.chips button').forEach(b=>b.classList.remove('active')); el.classList.add('active'); renderList(txt==='All'?"":txt); }
-function playSong(i){ current=i; audio.src=songs[i].file; audio.play().catch(()=>alert("Gaana nahi mila! GitHub me songs folder me MP3 daalo - naam: "+songs[i].file)); playBtn.innerText='⏸'; document.getElementById('nowTitle').innerText=songs[i].title; document.getElementById('nowArtist').innerText=songs[i].artist; document.getElementById('nowCover').innerText=songs[i].emoji; document.getElementById('nowCover').style.background=songs[i].color; renderList(document.getElementById('searchInput').value); }
-function togglePlay(){ if(!audio.src){playSong(0);return;} if(audio.paused){audio.play();playBtn.innerText='⏸';}else{audio.pause();playBtn.innerText='▶';} }
-function nextSong(){ playSong((current+1)%songs.length); }
-function prevSong(){ playSong((current-1+songs.length)%songs.length); }
-audio.ontimeupdate=()=>{ if(audio.duration) document.getElementById('progress').value=(audio.currentTime/audio.duration)*100; };
-document.getElementById('progress').oninput=(e)=>{ if(audio.duration) audio.currentTime=(e.target.value/100)*audio.duration; };
-audio.onended=()=>nextSong();
-renderGrid(); renderList("");
-</script>
-</body>
-</html>
+function renderGrid(){ grid.innerHTML=""; songs.slice(0,4).forEach((s,i)=>{ let d=document.createElement('div'); d.className='gridCard'; d.innerHTML=`<div class="img" style="background:${s.color}">${s.emoji}</div><h3>${s.title}</h3><p>${s.artist}</p>`; d.onclick=()=>playSong(i); grid.appendChild(d); }); }
+function renderList(filter=""){ list.innerHTML=""; let filtered=songs.filter(s=>(s.title+s.artist).toLowerCase().includes(filter.toLowerCase())); document.getElementById('noResult').style.display=filtered.length?'none':'block'; document.getElementById('list
